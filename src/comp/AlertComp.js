@@ -22,7 +22,14 @@ export default function AlertComp() {
     }, ALERT_TIMEOUT);
   }
   return alert.isVisible ? (
-    <Alert w="100%" status={alert.type} position="absolute" bottom={2} variant="top-accent">
+    <Alert
+      w="100%"
+      status={alert.type}
+      position="absolute"
+      zIndex={400}
+      bottom={0}
+      variant="top-accent"
+    >
       <VStack space={2} flexShrink={1} w="100%">
         <HStack flexShrink={1} space={2} justifyContent="space-between">
           <HStack space={2} flexShrink={1} alignItems="center">

@@ -12,7 +12,7 @@ export default function UserMainHeader({ userName, isFetching = false }) {
   const navigation = useNavigation();
 
   return (
-    <View mb={6}>
+    <View mb={vs(20)}>
       <LinearGradient
         style={{
           borderBottomLeftRadius: 10,
@@ -22,7 +22,7 @@ export default function UserMainHeader({ userName, isFetching = false }) {
         end={{ x: 1, y: 0 }}
         colors={['#0452E5', '#01B7EB']}
       >
-        <View m={ms(20)} mb={ms(30)}>
+        <View m={vs(20)} mb={vs(30)}>
           <View>
             <HStack justifyContent="space-between" alignItems="center">
               <HStack space={3}>
@@ -30,12 +30,12 @@ export default function UserMainHeader({ userName, isFetching = false }) {
                 <VStack>
                   {!isFetching && userName !== '' && (
                     <Text variant="light" fontSize={ms(17)} color="white">
-                      Hi {userName}
+                      Hi Dr. {userName}
                     </Text>
                   )}
                   {(isFetching || userName === '') && <Skeleton.Text px="1" lines={1} />}
                   <Text variant="bold" fontSize={ms(20)} color="white">
-                    Find Your Doctor
+                    Happy Consulting
                   </Text>
                 </VStack>
               </HStack>
@@ -48,7 +48,7 @@ export default function UserMainHeader({ userName, isFetching = false }) {
       </LinearGradient>
       <View alignItems="center" position="absolute" w="100%" top={s(80)}>
         <Input
-          h={s(35)}
+          // h={vs(35)}
           fontFamily="Mulish"
           fontWeight={200}
           fontSize={ms(12)}

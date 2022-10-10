@@ -70,12 +70,12 @@ function Login() {
     <>
       <Image
         alt="Upwave"
-        style={{ position: 'absolute', top: 0, zIndex: 1 }}
+        style={{ position: 'absolute', top: 0, zIndex: 1, width: '100%' }}
         source={require('../../asset/img/upWaves.png')}
       />
       <Image
         alt="Bottomwave"
-        style={{ position: 'absolute', bottom: 0, zIndex: 1 }}
+        style={{ position: 'absolute', bottom: 0, zIndex: 1, width: '100%' }}
         source={require('../../asset/img/downWaves.png')}
       />
       <Center justifyContent="center" flex={1}>

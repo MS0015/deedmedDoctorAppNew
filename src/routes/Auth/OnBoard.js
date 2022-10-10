@@ -10,11 +10,11 @@ function OnBoard() {
   return (
     <SafeAreaView flex={1}>
       <Image
-        style={{ position: 'absolute', top: 0, zIndex: 1 }}
+        style={{ position: 'absolute', top: 0, zIndex: 1, width: '100%' }}
         source={require('../../asset/img/upWaves.png')}
       />
       <Image
-        style={{ position: 'absolute', bottom: 0, zIndex: 1 }}
+        style={{ position: 'absolute', bottom: 0, zIndex: 1, width: '100%' }}
         source={require('../../asset/img/downWaves.png')}
       />
       <Center justifyContent="center" flex={1} bg="#edf3f5">

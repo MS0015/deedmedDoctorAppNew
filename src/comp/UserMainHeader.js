@@ -12,7 +12,7 @@ export default function UserMainHeader({ userName, isFetching = false }) {
   const navigation = useNavigation();
 
   return (
-    <View mb={vs(20)}>
+    <View mb={vs(10)}>
       <LinearGradient
         style={{
           borderBottomLeftRadius: 10,
@@ -22,33 +22,30 @@ export default function UserMainHeader({ userName, isFetching = false }) {
         end={{ x: 1, y: 0 }}
         colors={['#0452E5', '#01B7EB']}
       >
-        <View m={vs(20)} mb={vs(30)}>
-          <View>
-            <HStack justifyContent="space-between" alignItems="center">
-              <HStack space={3}>
-                <Avatar size={ms(55)} source={require('../asset/img/dr.jpg')} />
-                <VStack>
-                  {!isFetching && userName !== '' && (
-                    <Text variant="light" fontSize={ms(17)} color="white">
-                      Hi Dr. {userName}
-                    </Text>
-                  )}
-                  {(isFetching || userName === '') && <Skeleton.Text px="1" lines={1} />}
-                  <Text variant="bold" fontSize={ms(20)} color="white">
-                    Happy Consulting
+        <View m={vs(20)} mb={vs(25)}>
+          <HStack justifyContent="space-between" alignItems="center">
+            <HStack space={3}>
+              <Avatar size={ms(55)} source={require('../asset/img/dr.jpg')} />
+              <VStack>
+                {!isFetching && userName !== '' && (
+                  <Text variant="light" fontSize={ms(17)} color="white">
+                    Hi Dr. {userName}
                   </Text>
-                </VStack>
-              </HStack>
-              <TouchableOpacity onPress={() => navigation.navigate('Drawer')}>
-                <FontAwesome name="align-right" size={ms(25)} color="white" />
-              </TouchableOpacity>
+                )}
+                {(isFetching || userName === '') && <Skeleton.Text px="1" lines={1} />}
+                <Text variant="bold" fontSize={ms(20)} color="white">
+                  Happy Consulting
+                </Text>
+              </VStack>
             </HStack>
-          </View>
+            <TouchableOpacity onPress={() => navigation.navigate('Drawer')}>
+              <FontAwesome name="align-right" size={ms(25)} color="white" />
+            </TouchableOpacity>
+          </HStack>
         </View>
       </LinearGradient>
-      <View alignItems="center" position="absolute" w="100%" top={s(80)}>
+      <View alignItems="center" w="100%" mt={vs(-15)}>
         <Input
-          // h={vs(35)}
           fontFamily="Mulish"
           fontWeight={200}
           fontSize={ms(12)}

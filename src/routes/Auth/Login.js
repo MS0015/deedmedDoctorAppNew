@@ -16,10 +16,10 @@ import AntDesign from 'react-native-vector-icons/AntDesign';
 import { TouchableOpacity } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 import { useForm, Controller } from 'react-hook-form';
+import { useDispatch } from 'react-redux';
 import GButton from '../../comp/GButton';
 import { useLoginMutation } from '../../reducer/api/userApi';
 import LoadingComp from '../../comp/LoadingComp';
-import { useDispatch } from 'react-redux';
 import { setAlert } from '../../reducer/appStateSlice';
 
 function Login() {
@@ -79,7 +79,9 @@ function Login() {
         source={require('../../asset/img/downWaves.png')}
       />
       <Center justifyContent="center" flex={1}>
-        <Text variant="mainTitle">Welcome back!</Text>
+        <Text variant="semiBold" fontSize="2xl">
+          Welcome back!
+        </Text>
         <Text variant="desc">Sign in to continue!</Text>
 
         <HStack mb="2.5" mt="1.5" space={3}>

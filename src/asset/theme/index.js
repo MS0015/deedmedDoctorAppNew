@@ -1,6 +1,7 @@
 import { extendTheme } from 'native-base';
-import { ms, vs } from 'react-native-size-matters';
+import { ms } from 'react-native-size-matters';
 
+// eslint-disable-next-line import/prefer-default-export
 export const theme = extendTheme({
   config: {
     initialColorMode: 'light',
@@ -68,19 +69,19 @@ export const theme = extendTheme({
       variants: {
         mLight: {
           fontFamily: 'Mulish',
-          color: '#ffffff',
+          color: '#25282B',
           fontSize: ms(12),
           fontWeight: 100,
         },
         desc: {
           fontFamily: 'Mulish',
-          color: '#52575C',
+          color: '#25282B',
           fontSize: ms(12),
           fontWeight: 200,
         },
         titleSm: {
           fontFamily: 'Mulish',
-          color: '#ffffff',
+          color: '#25282B',
           fontSize: ms(14),
           fontWeight: 300,
         },
@@ -104,19 +105,19 @@ export const theme = extendTheme({
         },
         light: {
           fontFamily: 'Mulish',
-          color: '#ffffff',
+          color: '#25282B',
           fontSize: ms(12),
           fontWeight: 100,
         },
         regular: {
           fontFamily: 'Mulish',
-          color: '#52575C',
+          color: '#25282B',
           fontSize: ms(13),
           fontWeight: 200,
         },
         semiBold: {
           fontFamily: 'Mulish',
-          color: '#ffffff',
+          color: '#25282B',
           fontSize: ms(14),
           fontWeight: 300,
         },

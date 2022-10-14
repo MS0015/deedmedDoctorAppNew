@@ -9,6 +9,7 @@ import {
   VStack,
   ScrollView,
   Image,
+  FormControl,
 } from 'native-base';
 import React, { useState } from 'react';
 import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
@@ -16,21 +17,33 @@ import AntDesign from 'react-native-vector-icons/AntDesign';
 import { SafeAreaView, TouchableOpacity } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 import GButton from '../../comp/GButton';
+import { Controller, useForm } from 'react-hook-form';
 
 function Signup() {
   const navigation = useNavigation();
-
+  const {
+    control,
+    handleSubmit,
+    formState: { errors, isValid },
+  } = useForm();
   const [show, setShow] = useState(false);
+
+  const onSubmit = (data) => {
+    console.log('submiting with ', data);
+  };
+
   return (
     <SafeAreaView>
       <Image
-        style={{ position: 'absolute', top: 0, zIndex: 1 }}
+        style={{ position: 'absolute', top: 0, zIndex: 0, width: '100%' }}
         source={require('../../asset/img/upWaves.png')}
       />
 
       <ScrollView>
-        <Center mt={2} mb={2}>
-          <Text variant="bold">Join us start searching</Text>
+        <Center mt={5} mb={2}>
+          <Text variant="bold" fontSize="2xl">
+            Join us start searching
+          </Text>
           <Text variant="regular">Signup to our platform and explore our service</Text>
 
           <HStack mb="2.5" mt="3" space={3}>
@@ -53,7 +66,65 @@ function Signup() {
           <Text variant="desc" mb={2}>
             OR
           </Text>
-          <Stack space={4} w="100%" alignItems="center" mb={3}>
+          <Stack space={4}>
+            <FormControl isRequired isInvalid={errors?.firstName}>
+              <Controller
+                control={control}
+                render={({ field: { onChange, onBlur, value } }) => (
+                  <Input
+                    w={{
+                      base: '90%',
+                    }}
+                    InputLeftElement={
+                      <Icon
+                        as={<MaterialIcons name="person" />}
+                        size={5}
+                        ml="2"
+                        color="muted.400"
+                      />
+                    }
+                    placeholder="Name"
+                    onBlur={onBlur}
+                    onChangeText={(val) => onChange(val)}
+                    value={value}
+                  />
+                )}
+                name="firstName"
+                rules={{ required: 'Field is required', minLength: 3 }}
+                defaultValue=""
+              />
+              <FormControl.ErrorMessage>{errors?.firstName?.message}</FormControl.ErrorMessage>
+            </FormControl>
+
+            <FormControl isRequired isInvalid={errors?.firstName}>
+              <Controller
+                control={control}
+                render={({ field: { onChange, onBlur, value } }) => (
+                  <Input
+                    w={{
+                      base: '90%',
+                    }}
+                    InputLeftElement={
+                      <Icon
+                        as={<MaterialIcons name="person" />}
+                        size={5}
+                        ml="2"
+                        color="muted.400"
+                      />
+                    }
+                    placeholder="Name"
+                    onBlur={onBlur}
+                    onChangeText={(val) => onChange(val)}
+                    value={value}
+                  />
+                )}
+                name="firstName"
+                rules={{ required: 'Field is required', minLength: 3 }}
+                defaultValue=""
+              />
+              <FormControl.ErrorMessage>{errors?.firstName?.message}</FormControl.ErrorMessage>
+            </FormControl>
+
             <Input
               w={{
                 base: '90%',
@@ -147,7 +218,7 @@ function Signup() {
             />
           </Stack>
 
-          <GButton label="Sign up" w="75%" />
+          <GButton label="Sign up" w="75%" onPress={handleSubmit(onSubmit)} />
 
           <VStack alignItems="center" mt={3}>
             <TouchableOpacity onPress={() => navigation.navigate('Login')}>

@@ -1,8 +1,8 @@
-import { Text, Image, Center, Button, View } from 'native-base';
+import { Text, Image, Center, Button } from 'native-base';
 import React from 'react';
 import { useNavigation } from '@react-navigation/native';
-import GButton from '../../comp/GButton';
 import { SafeAreaView } from 'react-native';
+import GButton from '../../comp/GButton';
 
 function OnBoard() {
   const navigation = useNavigation();
@@ -23,8 +23,10 @@ function OnBoard() {
           alt="Marketplace img"
           size="3xs"
           resizeMode="contain"
-          mb={5}
         />
+        <Text variant="bold" mb={5}>
+          For Doctors
+        </Text>
         <GButton label="Login" onPress={() => navigation.navigate('Login')} />
 
         <Button variant="outline" width="80%" m={1} onPress={() => navigation.navigate('Signup')}>

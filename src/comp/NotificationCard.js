@@ -108,9 +108,9 @@ export default function NotificationCard({ label, onPress, style, color, type })
 
 NotificationCard.propTypes = {
   label: PropTypes.string,
-  color: PropTypes.string,
+  color: PropTypes.arrayOf(PropTypes.string),
   onPress: PropTypes.func,
-  style: PropTypes.object,
+  style: PropTypes.objectOf(PropTypes.string),
   type: PropTypes.oneOf([
     'doctorSuggestTime',
     'ratePharmacy',

@@ -13,6 +13,8 @@ import Signup from './Auth/Signup';
 import Feature from './Feature';
 import Notification from './Notification';
 import Profile from './Profile';
+import Details from './Appointments/Details';
+import Appointments from './Appointments';
 
 const Stack = createNativeStackNavigator();
 const Tab = createBottomTabNavigator();
@@ -35,6 +37,24 @@ function Home() {
               resizeMode="contain"
             />
           ),
+        })}
+      />
+      <Tab.Screen
+        name="Appointments"
+        component={Appointments}
+        options={() => ({
+          headerShown: false,
+          tabBarShowLabel: false,
+          tabBarIcon: ({ color, size }) => (
+            <Image
+              source={require('../asset/img/cal.png')}
+              alt="Icon"
+              size={size}
+              tintColor={color}
+              resizeMode="contain"
+            />
+          ),
+          tabBarBadge: 2,
         })}
       />
       <Tab.Screen
@@ -136,6 +156,13 @@ export default function MainScene() {
                 animation: 'slide_from_right',
               }}
             /> */}
+
+            {/* Appoinments routes */}
+            <Stack.Screen
+              name="AppointmentsDetails"
+              component={Details}
+              options={{ headerShown: false, headerStyle: { elevation: 0 } }}
+            />
           </Stack.Group>
         )}
       </Stack.Navigator>

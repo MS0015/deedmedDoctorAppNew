@@ -9,6 +9,7 @@ import NotificationCard from '../comp/NotificationCard';
 import { useGetUserQuery } from '../reducer/api/userApi';
 import EarningsMainCard from '../comp/EarningsMainCard';
 import ReviewMainCard from '../comp/ReviewMainCard';
+import AppointmentsCard from '../comp/AppointmentsCard';
 
 export default function Feature({ navigation }) {
   const { isFetching: userIsFetching } = useGetUserQuery();
@@ -35,6 +36,15 @@ export default function Feature({ navigation }) {
           </Text>
           <EarningsMainCard />
           <ReviewMainCard />
+        </VStack>
+
+        <VStack m={2} space={3}>
+          <Text variant="bold" fontSize={ms(18)}>
+            Upcoming Appoinments
+          </Text>
+          <AppointmentsCard onPress={() => navigation.navigate('AppointmentsDetails')} />
+          <AppointmentsCard />
+          <AppointmentsCard />
         </VStack>
       </ScrollView>
     </SafeAreaView>

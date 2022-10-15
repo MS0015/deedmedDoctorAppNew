@@ -15,6 +15,9 @@ import Notification from './Notification';
 import Profile from './Profile';
 import Details from './Appointments/Details';
 import Appointments from './Appointments';
+import Patients from './Patients';
+import Drawer from './Drawer';
+import MonthlyEarnings from './Drawer/MonthlyEarnings';
 
 const Stack = createNativeStackNavigator();
 const Tab = createBottomTabNavigator();
@@ -48,6 +51,24 @@ function Home() {
           tabBarIcon: ({ color, size }) => (
             <Image
               source={require('../asset/img/cal.png')}
+              alt="Icon"
+              size={size}
+              tintColor={color}
+              resizeMode="contain"
+            />
+          ),
+          tabBarBadge: 2,
+        })}
+      />
+      <Tab.Screen
+        name="Patients"
+        component={Patients}
+        options={() => ({
+          headerShown: false,
+          tabBarShowLabel: false,
+          tabBarIcon: ({ color, size }) => (
+            <Image
+              source={require('../asset/img/patientDetails.png')}
               alt="Icon"
               size={size}
               tintColor={color}
@@ -147,15 +168,20 @@ export default function MainScene() {
             />
 
             {/* Drawer Routes */}
-            {/* <Stack.Screen
+            <Stack.Screen
               name="Drawer"
               component={Drawer}
               options={{
                 headerShown: false,
-                headerStyle: {elevation: 0},
+                headerStyle: { elevation: 0 },
                 animation: 'slide_from_right',
               }}
-            /> */}
+            />
+            <Stack.Screen
+              name="MonthlyEarnings"
+              component={MonthlyEarnings}
+              options={{ headerShown: false, headerStyle: { elevation: 0 } }}
+            />
 
             {/* Appoinments routes */}
             <Stack.Screen

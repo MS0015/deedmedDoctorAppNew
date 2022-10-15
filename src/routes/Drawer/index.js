@@ -42,10 +42,16 @@ export default function Drawer({ navigation }) {
         </HStack>
         <VStack justifyContent="space-between" flex={1}>
           <VStack mt={5}>
-            <DrawerItem label="Pharmacies" onPress={() => navigation.replace('Pharmacies')} />
-            <DrawerItem label="My Orders" onPress={() => navigation.replace('MyOrders')} />
-            <DrawerItem label="Payments" onPress={() => navigation.replace('Payments')} />
-            <DrawerItem label="Favourites" onPress={() => navigation.replace('Favorites')} />
+            <DrawerItem
+              label="Patients"
+              onPress={() => navigation.replace('Home', { screen: 'Patients' })}
+            />
+            <DrawerItem
+              label="Payment History"
+              onPress={() => navigation.replace('MonthlyEarnings')}
+            />
+            <DrawerItem label="Availability" onPress={() => navigation.replace('Availability')} />
+            <DrawerItem label="My Rates" onPress={() => navigation.replace('MyRates')} />
             <DrawerItem
               label="Privacy control"
               onPress={() => navigation.replace('PrivacyControl')}

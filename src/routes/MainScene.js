@@ -18,6 +18,7 @@ import Appointments from './Appointments';
 import Patients from './Patients';
 import Drawer from './Drawer';
 import MonthlyEarnings from './Drawer/MonthlyEarnings';
+import PatientDetails from './Patients/PatientDetails';
 
 const Stack = createNativeStackNavigator();
 const Tab = createBottomTabNavigator();
@@ -117,7 +118,8 @@ function Home() {
 }
 
 export default function MainScene() {
-  const token = useSelector((state) => state.userState.auth.token);
+  // const token = useSelector((state) => state.userState.auth.token);
+  const token = '*****';
 
   return (
     <NavigationContainer>
@@ -187,6 +189,13 @@ export default function MainScene() {
             <Stack.Screen
               name="AppointmentsDetails"
               component={Details}
+              options={{ headerShown: false, headerStyle: { elevation: 0 } }}
+            />
+
+            {/* Patient routes */}
+            <Stack.Screen
+              name="PatientDetails"
+              component={PatientDetails}
               options={{ headerShown: false, headerStyle: { elevation: 0 } }}
             />
           </Stack.Group>

@@ -1,32 +1,37 @@
 import { Avatar, HStack, Text, VStack } from 'native-base';
 import React from 'react';
-import FontAwesome from 'react-native-vector-icons/FontAwesome';
+import { TouchableOpacity } from 'react-native';
 
-export default function PatientCard() {
+export default function PatientCard({ onPress }) {
   return (
-    <HStack
-      justifyContent="space-between"
-      alignItems="center"
-      borderRadius={10}
-      borderWidth={1}
-      borderColor="gray.300"
-      shadow={3}
-      p={2}
-      bg="white"
-    >
-      <HStack space={4}>
-        <Avatar />
+    <TouchableOpacity onPress={onPress} activeOpacity={0.5}>
+      <HStack
+        justifyContent="space-between"
+        alignItems="center"
+        borderRadius={10}
+        borderWidth={1}
+        borderColor="gray.300"
+        shadow={2}
+        p={2}
+        bg="white"
+        mt={3}
+      >
+        <HStack space={4}>
+          <Avatar />
+          <VStack>
+            <Text variant="mainTitle">Jannet Walton</Text>
+            <Text variant="desc" color="gray.500">
+              Patient
+            </Text>
+          </VStack>
+        </HStack>
         <VStack>
-          <Text variant="mainTitle">Jannet Walton</Text>
-          <Text variant="desc" color="gray.500">
-            Patient
+          <Text variant="bold" color="#0466E6">
+            25
           </Text>
+          <Text color="#0466E6">Appointments</Text>
         </VStack>
       </HStack>
-      <HStack space={2} alignItems="center">
-        <FontAwesome name="edit" size={25} color="blue" />
-        <FontAwesome name="trash-o" size={25} color="gray" />
-      </HStack>
-    </HStack>
+    </TouchableOpacity>
   );
 }

@@ -29,6 +29,7 @@ export default function AppointmentsCard({ label, onPress }) {
         </VStack>
       </HStack>
       <HStack
+        shadow={2}
         p={2}
         justifyContent="space-between"
         alignItems="center"

@@ -19,6 +19,7 @@ import Patients from './Patients';
 import Drawer from './Drawer';
 import MonthlyEarnings from './Drawer/MonthlyEarnings';
 import PatientDetails from './Patients/PatientDetails';
+import Reviews from './Patients/Reviews';
 
 const Stack = createNativeStackNavigator();
 const Tab = createBottomTabNavigator();
@@ -196,6 +197,11 @@ export default function MainScene() {
             <Stack.Screen
               name="PatientDetails"
               component={PatientDetails}
+              options={{ headerShown: false, headerStyle: { elevation: 0 } }}
+            />
+            <Stack.Screen
+              name="Reviews"
+              component={Reviews}
               options={{ headerShown: false, headerStyle: { elevation: 0 } }}
             />
           </Stack.Group>

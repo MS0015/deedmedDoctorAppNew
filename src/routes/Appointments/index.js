@@ -2,10 +2,10 @@ import { createMaterialTopTabNavigator } from '@react-navigation/material-top-ta
 import { Box, HStack, Text, View } from 'native-base';
 import { SafeAreaView, TouchableOpacity } from 'react-native';
 import React from 'react';
-import PastTab from './PastTab';
-import UpcommingTab from './UpcommingTab';
 import LinearGradient from 'react-native-linear-gradient';
 import Feather from 'react-native-vector-icons/Feather';
+import PastTab from './PastTab';
+import UpcommingTab from './UpcommingTab';
 
 const TopTab = createMaterialTopTabNavigator();
 

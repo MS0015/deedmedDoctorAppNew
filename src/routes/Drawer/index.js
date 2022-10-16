@@ -7,6 +7,7 @@ import AntDesign from 'react-native-vector-icons/AntDesign';
 import { useDispatch } from 'react-redux';
 import DrawerItem from '../../comp/DrawerItem';
 import { signOut } from '../../reducer/userStateSlice';
+
 export default function Drawer({ navigation }) {
   const dispatch = useDispatch();
   return (

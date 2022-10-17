@@ -2,11 +2,9 @@ import { Button, Divider, HStack, ScrollView, Text, VStack } from 'native-base';
 import React, { useState } from 'react';
 import { ImageBackground, SafeAreaView } from 'react-native';
 import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
-import CancelAppointmentModal from '../../comp/CancelAppointmentModal';
 import Header from '../../comp/Header';
 
-export default function Details() {
-  const [showModal, setShowModal] = useState(false);
+export default function Details({ navigation }) {
   return (
     <SafeAreaView style={{ flex: 1 }}>
       <Header title="Appoinments Details" />
@@ -83,23 +81,17 @@ export default function Details() {
             Send mail
           </Button>
 
-          <VStack space={1}>
-            <Text variant="desc" color="gray.500" fontSize="sm">
-              This Appoinment can cancel 1 hour prior
-            </Text>
-            <Button
-              variant="outline"
-              colorScheme="red"
-              onPress={() => {
-                setShowModal(true);
-              }}
-            >
-              Cancel Appoinment
-            </Button>
-          </VStack>
+          <Button
+            variant="outline"
+            colorScheme="blue"
+            onPress={() => {
+              navigation.navigate('ChooseDateAndTime');
+            }}
+          >
+            Request a Change Appoinment
+          </Button>
         </VStack>
       </ScrollView>
-      <CancelAppointmentModal modalVisible={showModal} onClose={() => setShowModal(false)} />
     </SafeAreaView>
   );
 }

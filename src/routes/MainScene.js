@@ -20,6 +20,9 @@ import Drawer from './Drawer';
 import MonthlyEarnings from './Drawer/MonthlyEarnings';
 import PatientDetails from './Patients/PatientDetails';
 import Reviews from './Patients/Reviews';
+import PrivacyControl from './Drawer/PrivacyControl';
+import SecurityControl from './Drawer/SecurityControl';
+import ChooseDateAndTime from './Appointments/ChooseDateAndTime';
 
 const Stack = createNativeStackNavigator();
 const Tab = createBottomTabNavigator();
@@ -185,11 +188,27 @@ export default function MainScene() {
               component={MonthlyEarnings}
               options={{ headerShown: false, headerStyle: { elevation: 0 } }}
             />
+            <Stack.Screen
+              name="PrivacyControl"
+              component={PrivacyControl}
+              options={{ headerShown: false, headerStyle: { elevation: 0 } }}
+            />
+            <Stack.Screen
+              name="SecurityControl"
+              component={SecurityControl}
+              options={{ headerShown: false, headerStyle: { elevation: 0 } }}
+            />
 
             {/* Appoinments routes */}
             <Stack.Screen
               name="AppointmentsDetails"
               component={Details}
+              options={{ headerShown: false, headerStyle: { elevation: 0 } }}
+            />
+
+            <Stack.Screen
+              name="ChooseDateAndTime"
+              component={ChooseDateAndTime}
               options={{ headerShown: false, headerStyle: { elevation: 0 } }}
             />
 

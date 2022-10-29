@@ -23,6 +23,9 @@ import Reviews from './Patients/Reviews';
 import PrivacyControl from './Drawer/PrivacyControl';
 import SecurityControl from './Drawer/SecurityControl';
 import ChooseDateAndTime from './Appointments/ChooseDateAndTime';
+import MyRates from './Drawer/MyRates';
+import Comments from './Appointments/Comments';
+import VideoCall from './Appointments/VideoCall';
 
 const Stack = createNativeStackNavigator();
 const Tab = createBottomTabNavigator();
@@ -198,6 +201,11 @@ export default function MainScene() {
               component={SecurityControl}
               options={{ headerShown: false, headerStyle: { elevation: 0 } }}
             />
+            <Stack.Screen
+              name="MyRates"
+              component={MyRates}
+              options={{ headerShown: false, headerStyle: { elevation: 0 } }}
+            />
 
             {/* Appoinments routes */}
             <Stack.Screen
@@ -212,6 +220,17 @@ export default function MainScene() {
               options={{ headerShown: false, headerStyle: { elevation: 0 } }}
             />
 
+            <Stack.Screen
+              name="Comments"
+              component={Comments}
+              options={{ headerShown: false, headerStyle: { elevation: 0 } }}
+            />
+
+            <Stack.Screen
+              name="VideoCall"
+              component={VideoCall}
+              options={{ headerShown: false, headerStyle: { elevation: 0 } }}
+            />
             {/* Patient routes */}
             <Stack.Screen
               name="PatientDetails"

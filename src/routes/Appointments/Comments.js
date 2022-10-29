@@ -1,5 +1,6 @@
 import { Chat } from '@flyerhq/react-native-chat-ui';
 import React, { useState } from 'react';
+import { Alert } from 'react-native';
 
 // For the testing purposes, you should probably use https://github.com/uuidjs/uuid
 const uuidv4 = () =>
@@ -35,6 +36,8 @@ function Comments() {
       messages={messages}
       onSendPress={handleSendPress}
       user={user}
+      // isAttachmentUploading
+      onAttachmentPress={() => Alert.alert('KKK')}
     />
   );
 }

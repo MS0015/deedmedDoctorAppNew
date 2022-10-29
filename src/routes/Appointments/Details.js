@@ -85,7 +85,7 @@ export default function Details({ navigation }) {
             variant="outline"
             colorScheme="blue"
             onPress={() => {
-              navigation.navigate('ChooseDateAndTime');
+              navigation.navigate('Comments');
             }}
           >
             Request a Change Appoinment

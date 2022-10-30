@@ -7,7 +7,7 @@ import Feather from 'react-native-vector-icons/Feather';
 import PropTypes from 'prop-types';
 import { ms } from 'react-native-size-matters';
 
-export default function Header({ title, searchable, onPress, onPressFilter }) {
+export default function Header({ title, searchable, onPress, onPressFilter, rightComp }) {
   const navigation = useNavigation();
 
   return (
@@ -21,15 +21,18 @@ export default function Header({ title, searchable, onPress, onPressFilter }) {
       end={{ x: 1, y: 0 }}
       colors={['#0452E5', '#01B7EB']}
     >
-      <HStack alignItems="center" mb={3} mt={3} space={2}>
-        <TouchableOpacity onPress={() => navigation.goBack()}>
-          <Box bg="white" borderRadius={6} p={1}>
-            <Feather name="chevron-left" size={20} />
-          </Box>
-        </TouchableOpacity>
-        <Text variant="bold" color="white" fontSize={ms(18)}>
-          {title}
-        </Text>
+      <HStack alignItems="center" mb={3} mt={3} justifyContent="space-between">
+        <HStack alignItems="center" space={2}>
+          <TouchableOpacity onPress={() => navigation.goBack()}>
+            <Box bg="white" borderRadius={6} p={1}>
+              <Feather name="chevron-left" size={20} />
+            </Box>
+          </TouchableOpacity>
+          <Text variant="bold" color="white" fontSize={ms(18)}>
+            {title}
+          </Text>
+        </HStack>
+        {rightComp()}
       </HStack>
       {searchable && (
         <HStack alignSelf="center" alignItems="center" space={2}>
@@ -60,10 +63,12 @@ Header.propTypes = {
   searchable: PropTypes.bool,
   onPress: PropTypes.func,
   onPressFilter: PropTypes.func,
+  rightComp: PropTypes.func,
 };
 Header.defaultProps = {
   title: '',
   searchable: false,
   onPress: () => {},
   onPressFilter: () => {},
+  rightComp: () => {},
 };

@@ -5,7 +5,7 @@ import { SafeAreaView } from 'react-native';
 import { AirbnbRating } from 'react-native-ratings';
 import GButton from '../../comp/GButton';
 
-export default function RatePharmacy() {
+export default function RatePatient() {
   return (
     <SafeAreaView style={{ flex: 1, justifyContent: 'center' }}>
       <VStack bg="white" alignItems="center" p={4} m={4} borderRadius={10}>

@@ -1,6 +1,10 @@
-import { Chat } from '@flyerhq/react-native-chat-ui';
+import { Chat, defaultTheme, Input } from '@flyerhq/react-native-chat-ui';
+import { HStack, Text } from 'native-base';
 import React, { useState } from 'react';
-import { Alert } from 'react-native';
+import { Alert, TouchableOpacity } from 'react-native';
+import { SafeAreaView } from 'react-native-safe-area-context';
+import Feather from 'react-native-vector-icons/Feather';
+import Header from '../../comp/Header';
 
 // For the testing purposes, you should probably use https://github.com/uuidjs/uuid
 const uuidv4 = () =>
@@ -30,15 +34,39 @@ function Comments() {
   };
 
   return (
-    <Chat
-      showUserAvatars
-      showUserNames
-      messages={messages}
-      onSendPress={handleSendPress}
-      user={user}
-      // isAttachmentUploading
-      onAttachmentPress={() => Alert.alert('KKK')}
-    />
+    <SafeAreaView style={{ flex: 1 }}>
+      <Header
+        title="Reviews"
+        rightComp={() => (
+          <TouchableOpacity>
+            <HStack alignItems="center">
+              <Text variant="bold" color="white">
+                Next
+              </Text>
+              <Feather color="white" name="chevron-right" size={20} />
+            </HStack>
+          </TouchableOpacity>
+        )}
+      />
+
+      <Chat
+        showUserAvatars
+        showUserNames
+        messages={messages}
+        onSendPress={handleSendPress}
+        user={user}
+        // isAttachmentUploading
+        onAttachmentPress={() => Alert.alert('KKK')}
+        // customBottomComponent={() => {
+        //   return <Input />;
+        // }}
+        textInputProps={{ placeholder: 'Type Your Comment' }}
+        theme={{
+          ...defaultTheme,
+          colors: { ...defaultTheme.colors, inputBackground: 'white', inputText: 'black' },
+        }}
+      />
+    </SafeAreaView>
   );
 }
 
